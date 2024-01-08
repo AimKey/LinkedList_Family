@@ -31,5 +31,27 @@ public class LinkedList_Family extends Menu<String>{
         }
     }
     
-    
+    public void linkedList(){
+        String[] mcs = {"Add Song", "Shuffle", "Skip to next",
+            "Back to previous", "Return to menu", "Exit"};
+        Menu smenu;
+        smenu = new Menu ("Playlist manager", mcs, this){
+            @Override
+            public void execute(int n) {
+                switch(n){
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        returnToPMenu();
+                        break;
+                    case 6:
+                        System.exit(0);
+                }
+            }
+            
+        };
+        smenu.run();
+    }
 }
