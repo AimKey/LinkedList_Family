@@ -5,6 +5,11 @@ public class Node {
     String dataOfNode;
     Node next;
 
+    public Node(String dataOfNode, Node next) {
+        this.dataOfNode = dataOfNode;
+        this.next = next;
+    }
+
     public String getDataOfNode() {
         return dataOfNode;
     }
