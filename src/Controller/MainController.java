@@ -84,17 +84,13 @@ public class MainController extends Menu<String> {
     }
 
     public void doShuffle() {
-        if (list.size < 1){
+        if (list.size < 1) {
             System.out.println("There is only 1 song in the list");
             return;
         }
-        
-<<<<<<< HEAD
-        System.out.println("Ahihi");
-=======
+
 // change to hihi
         System.out.println("hihi");
->>>>>>> 44bd7337448d1b93781a5f1fb215470e669dcb47
         list.shuffle();
     }
 
