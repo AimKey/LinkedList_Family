@@ -65,7 +65,7 @@ public class MainController extends Menu<String> {
 
     public void doAddSong() {
         String name = lib.getString("Enter song name");
-        int dur = lib.getInt("Enter song name");
+        int dur = lib.getInt("Enter duration");
         Song s = new Song(name, dur);
         list.add(s);
         algo.display(list.getHead());
