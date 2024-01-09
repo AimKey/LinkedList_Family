@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author phamm
  */
-public class LinkedList<Node> {
+public class LinkedList {
 
     Node head, tail;
     public int size;
@@ -34,8 +34,7 @@ public class LinkedList<Node> {
     }
 
     public void add(Song songData) {
-        ArrayList n = new ArrayList();
-        Node<Song> node = new Node<>(songData, null);
+        Node node = new Node(songData, null);
         if (head == null) {
 //            If empty, update pHead and pTail point to the new Node
             head = tail = node;
@@ -46,7 +45,7 @@ public class LinkedList<Node> {
         updateSize();
     }
 
-    public void add(int index, T inputData) {
+    public void add(int index, Song inputData) {
         if (index <= size) {
             Node newNode = new Node(inputData, null);
             Node pre = getNode(index - 1);
@@ -81,7 +80,7 @@ public class LinkedList<Node> {
         return null;
     }
 
-    public T get(int index) {
+    public Song get(int index) {
         int count = 0;
         Node pointer = head;
         while (pointer != null) {
@@ -94,7 +93,7 @@ public class LinkedList<Node> {
         return null;
     }
 
-    public void addFirst(T inputData) {
+    public void addFirst(Song inputData) {
         Node node = new Node(inputData, null);
         if (head == null) {
 //            If empty, update pHead and pTail point to the new Node
@@ -112,11 +111,11 @@ public class LinkedList<Node> {
 
 
 
-    public T next() {
+    public Song next() {
         if (curPointer == null) {
             return null;
         }
-        (T)Object info = curPointer.dataOfNode;
+        Song info = curPointer.dataOfNode;
         curPointer = curPointer.next;
         return info;
     }
