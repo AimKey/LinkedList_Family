@@ -41,7 +41,10 @@ public class LinkedList {
     public void setCurPointer(Node curPointer) {
         this.curPointer = curPointer;
     }
-    
+
+    public int size() {
+        return this.size;
+    }
 
     public void add(Song songData) {
         Node node = new Node(songData, null);
@@ -72,8 +75,7 @@ public class LinkedList {
             }
             updateSize();
         } else {
-            System.out.println("Exceed size limit!");
-            System.exit(1);
+            throw new Error("Exceed size limit!");
         }
     }
 
@@ -103,6 +105,22 @@ public class LinkedList {
         return null;
     }
 
+    public Node getPreviousNode(Node node) throws Exception {
+        try {
+            if (size > 1) {
+                Node p = head;
+                while (p.next != node) {
+                    p = p.next;
+                }
+                return p;
+            } else {
+                throw new Exception("List only contain 1 item!");
+            }
+        } catch (Exception e) {
+            throw new Exception("Cannot back further!");
+        }
+    }
+
     public void addFirst(Song inputData) {
         Node node = new Node(inputData, null);
         if (head == null) {
@@ -114,12 +132,6 @@ public class LinkedList {
         }
         updateSize();
     }
-
-    public int size() {
-        return this.size;
-    }
-
-
 
     public Song next() {
         if (curPointer == null) {
@@ -137,47 +149,44 @@ public class LinkedList {
     private void updateSize() {
         this.size++;
     }
-    
-    public void shuffle(){
-        
+
+    public void shuffle() {
         Random rand = new Random();
         Node[] nodeArray = toArray();
-        
-        if (size > 1){
-            if (size > 1) {
-                for (int i = size - 1; i > 0; i--) {
-                    int j = rand.nextInt(i + 1);
-                    swap(nodeArray, i, j);
-                }
+
+        if (size > 1) {
+            for (int i = size - 1; i > 0; i--) {
+                int j = rand.nextInt(i + 1);
+                swap(nodeArray, i, j);
             }
         }
-        
+
         returnToList(nodeArray);
     }
-    
-    private Node[] toArray(){
+
+    private Node[] toArray() {
         Node[] nodeArray = new Node[size];
         Node current = head;
         int index = 0;
-        while(current != null){
+        while (current != null) {
             nodeArray[index++] = current;
             current = current.getNext();
         }
         return nodeArray;
     }
-    
-    public void swap(Node[] nodeArray, int i, int j){
+
+    private void swap(Node[] nodeArray, int i, int j) {
         Node temp = nodeArray[i];
         nodeArray[i] = nodeArray[j];
         nodeArray[j] = temp;
     }
-    
-    public void returnToList(Node[] nodeArray){
+
+    private void returnToList(Node[] nodeArray) {
         head = nodeArray[0];
         tail = nodeArray[size - 1];
         tail.setNext(null);
-        
-        for (int i = 0; i < size - 1; i++){
+
+        for (int i = 0; i < size - 1; i++) {
             nodeArray[i].setNext(nodeArray[i + 1]);
         }
     }
