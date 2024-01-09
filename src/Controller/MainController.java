@@ -25,13 +25,23 @@ public class MainController extends Menu<String> {
                 linkedList();
                 break;
             case 2:
+                doublyLinkedList();
+                break;
             case 3:
+                circularLinkedList();
+                break;
             case 4:
                 System.exit(0);
         }
     }
 
     public void linkedList() {
+        new LinkedListController(parentMenu).run();
+    }
+    public void doublyLinkedList() {
+        new LinkedListController(parentMenu).run();
+    }
+    public void circularLinkedList() {
         new LinkedListController(parentMenu).run();
     }
 
