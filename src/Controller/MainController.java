@@ -5,6 +5,7 @@ import Common.Library;
 import Model.LinkedList;
 import Model.Node;
 import Model.Song;
+import java.util.Random;
 import view.Menu;
 
 public class MainController extends Menu<String> {
@@ -16,12 +17,14 @@ public class MainController extends Menu<String> {
     private LinkedList list;
     private Algorithm algo;
 
+
     public MainController(Node dataOfNode, Menu parentMenu) {
         super("Controller", mc, parentMenu);
         this.parentMenu = parentMenu;
         lib = new Library();
         list = new LinkedList();
         algo = new Algorithm();
+
     }
 
     @Override
@@ -49,6 +52,8 @@ public class MainController extends Menu<String> {
                         doAddSong();
                         break;
                     case 2:
+                        doShuffle();
+                        break;
                     case 3:
                     case 4:
                     case 5:
@@ -65,9 +70,20 @@ public class MainController extends Menu<String> {
 
     public void doAddSong() {
         String name = lib.getString("Enter song name");
-        int dur = lib.getInt("Enter song name");
+        int dur = lib.getInt("Enter song duration");
         Song s = new Song(name, dur);
         list.add(s);
+        algo.display(list.getHead());
+    }
+    
+    public void doShuffle(){
+        if (list.size < 1){
+            System.out.println("There is only 1 song in the list");
+            return;
+        }
+        System.out.println("Shuffling");
+        list.shuffle();
+        System.out.println("Shuffled List:");
         algo.display(list.getHead());
     }
 }

@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -126,5 +126,49 @@ public class LinkedList {
 
     private void updateSize() {
         this.size++;
+    }
+    
+    public void shuffle(){
+        
+        Random rand = new Random();
+        Node[] nodeArray = toArray();
+        
+        if (size > 1){
+            if (size > 1) {
+                for (int i = size - 1; i > 0; i--) {
+                    int j = rand.nextInt(i + 1);
+                    swap(nodeArray, i, j);
+                }
+            }
+        }
+        
+        returnToList(nodeArray);
+    }
+    
+    private Node[] toArray(){
+        Node[] nodeArray = new Node[size];
+        Node current = head;
+        int index = 0;
+        while(current != null){
+            nodeArray[index++] = current;
+            current = current.getNext();
+        }
+        return nodeArray;
+    }
+    
+    public void swap(Node[] nodeArray, int i, int j){
+        Node temp = nodeArray[i];
+        nodeArray[i] = nodeArray[j];
+        nodeArray[j] = temp;
+    }
+    
+    public void returnToList(Node[] nodeArray){
+        head = nodeArray[0];
+        tail = nodeArray[size - 1];
+        tail.setNext(null);
+        
+        for (int i = 0; i < size - 1; i++){
+            nodeArray[i].setNext(nodeArray[i + 1]);
+        }
     }
 }
