@@ -1,20 +1,15 @@
-
 package Common;
 
 import Model.Node;
 
 public class Algorithm {
-    
-    private Node head, tail;
-    
-    public void add(String inputData){
-        Node node = new Node(inputData, null);
-        if (head == null){
-            head = tail = node;
+
+    public void display(Node head) {
+        Node pointer = head;
+        while (pointer != null) {
+            System.out.print(pointer.getDataOfNode() + " ");
+            pointer.setNext(pointer);
         }
-        else{
-            tail.setNext(node);
-            tail = node;
-        }
+        System.out.println("");
     }
 }

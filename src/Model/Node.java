@@ -1,22 +1,23 @@
-
 package Model;
 
-public class Node {
-    String dataOfNode;
-    Node next;
-    
-    public Node(){}
+public class Node<T> {
 
-    public Node(String dataOfNode, Node next) {
+    T dataOfNode;
+    Node next;
+
+    public Node() {
+    }
+
+    public Node(Node next, T dataOfNode) {
         this.dataOfNode = dataOfNode;
         this.next = next;
     }
 
-    public String getDataOfNode() {
+    public T getDataOfNode() {
         return dataOfNode;
     }
 
-    public void setDataOfNode(String dataOfNode) {
+    public void setDataOfNode(T dataOfNode) {
         this.dataOfNode = dataOfNode;
     }
 
@@ -27,5 +28,5 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
-    
+
 }
