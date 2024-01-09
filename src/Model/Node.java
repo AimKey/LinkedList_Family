@@ -4,6 +4,8 @@ package Model;
 public class Node {
     String dataOfNode;
     Node next;
+    
+    public Node(){}
 
     public Node(String dataOfNode, Node next) {
         this.dataOfNode = dataOfNode;
