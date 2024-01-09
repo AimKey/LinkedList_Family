@@ -1,45 +1,53 @@
 package Controller;
 
+import Common.Algorithm;
+import Common.Library;
+import Model.LinkedList;
 import Model.Node;
+import Model.Song;
 import view.Menu;
 
-public class MainController extends Menu<String>{
-    
+public class MainController extends Menu<String> {
+
     private Menu parentMenu;
-    private Node node;
-    private static String[] mc = {"Playlist management", "Shopping Cart", 
-    "Game queue", "Exit"};
-    private String dataOfNode;
-    private String head, tail, next;
-    
-    
-    public MainController(Node dataOfNode, Menu parentMenu){
+    private static String[] mc = {"Playlist management", "Shopping Cart",
+        "Game queue", "Exit"};
+    private Library lib;
+    private LinkedList list;
+    private Algorithm algo;
+
+    public MainController(Node dataOfNode, Menu parentMenu) {
         super("Controller", mc, parentMenu);
         this.parentMenu = parentMenu;
-        dataOfNode.getDataOfNode();
-        head = tail = null;
+        lib = new Library();
+        list = new LinkedList();
+        algo = new Algorithm();
     }
 
     @Override
     public void execute(int n) {
-        switch(n){
+        switch (n) {
             case 1:
+                linkedList();
+                break;
             case 2:
             case 3:
             case 4:
                 System.exit(0);
         }
     }
-    
-    public void linkedList(){
+
+    public void linkedList() {
         String[] mcs = {"Add Song", "Shuffle", "Skip to next",
             "Back to previous", "Return to menu", "Exit"};
         Menu smenu;
-        smenu = new Menu ("Playlist manager", mcs, this){
+        smenu = new Menu("Playlist manager", mcs, this) {
             @Override
             public void execute(int n) {
-                switch(n){
+                switch (n) {
                     case 1:
+                        doAddSong();
+                        break;
                     case 2:
                     case 3:
                     case 4:
@@ -50,8 +58,16 @@ public class MainController extends Menu<String>{
                         System.exit(0);
                 }
             }
-            
+
         };
         smenu.run();
+    }
+
+    public void doAddSong() {
+        String name = lib.getString("Enter song name");
+        int dur = lib.getInt("Enter song name");
+        Song s = new Song(name, dur);
+        list.add(s);
+        algo.display(list.getHead());
     }
 }

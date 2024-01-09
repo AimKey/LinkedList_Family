@@ -1,23 +1,23 @@
 package Model;
 
-public class Node<T> {
+public class Node {
 
-    T dataOfNode;
+    Song dataOfNode;
     Node next;
 
     public Node() {
     }
 
-    public Node(Node next, T dataOfNode) {
+    public Node(Song dataOfNode, Node next) {
         this.dataOfNode = dataOfNode;
         this.next = next;
     }
 
-    public T getDataOfNode() {
+    public Song getDataOfNode() {
         return dataOfNode;
     }
 
-    public void setDataOfNode(T dataOfNode) {
+    public void setDataOfNode(Song dataOfNode) {
         this.dataOfNode = dataOfNode;
     }
 
