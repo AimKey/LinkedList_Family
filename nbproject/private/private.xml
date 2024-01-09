@@ -5,10 +5,15 @@
         <group>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Model/Song.java</file>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Common/Algorithm.java</file>
+            <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Controller/DoublyLinkedListController.java</file>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Model/LinkedList.java</file>
+            <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Controller/CircularLinkedListController.java</file>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Model/Node.java</file>
+            <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Controller/LinkedListController.java</file>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Main.java</file>
             <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Controller/MainController.java</file>
+            <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/View/Menu.java</file>
+            <file>file:/E:/FPT/Spring%202024/CSD201/projects/LinkedListFamily/src/Common/Library.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,7 +18,7 @@ public class LinkedListController extends Menu<String> {
     private LinkedList list;
     private Algorithm algo;
     public LinkedListController(Menu parentMenu) {
-        super("Controller", mc, parentMenu);
+        super("Playlist manager", mc, parentMenu);
         this.parentMenu = parentMenu;
         lib = new Library();
         list = new LinkedList();
