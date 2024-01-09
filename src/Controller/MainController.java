@@ -89,7 +89,8 @@ public class MainController extends Menu<String> {
             return;
         }
         
-        System.out.println("Dmmmm");
+// change to hihi
+        System.out.println("hihi");
         list.shuffle();
     }
 
