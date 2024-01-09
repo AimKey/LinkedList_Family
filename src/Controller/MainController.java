@@ -39,7 +39,7 @@ public class MainController extends Menu<String> {
 
     public void linkedList() {
         String[] mcs = {"Add Song", "Shuffle", "Skip to next",
-            "Back to previous", "Return to menu", "Exit"};
+            "Back to previous", "Show all songs", "Return to menu"};
         Menu smenu;
         smenu = new Menu("Playlist manager", mcs, this) {
             @Override
@@ -49,13 +49,20 @@ public class MainController extends Menu<String> {
                         doAddSong();
                         break;
                     case 2:
+                        doShuffle();
+                        break;
                     case 3:
+                        doSkip();
+                        break;
                     case 4:
+                        doBack();
+                        break;
                     case 5:
-                        returnToPMenu();
+                        doShow();
                         break;
                     case 6:
-                        System.exit(0);
+                        returnToPMenu();
+                        break;
                 }
             }
 
@@ -64,10 +71,34 @@ public class MainController extends Menu<String> {
     }
 
     public void doAddSong() {
-        String name = lib.getString("Enter song name");
-        int dur = lib.getInt("Enter song name");
-        Song s = new Song(name, dur);
-        list.add(s);
+        while (true) {
+            String name = lib.getString("Enter song name");
+            int dur = lib.getInt("Enter song duration");
+            Song s = new Song(name, dur);
+            list.add(s);
+            if ("n".equals(lib.getString("Continue? y/n"))) {
+                break;
+            }
+        }
         algo.display(list.getHead());
+    }
+
+    public void doShuffle() {
+
+    }
+
+    public void doSkip() {
+
+    }
+
+    public void doBack() {
+
+    }
+
+    public void doShow() {
+        System.out.println("------------Playlist------------");
+        algo.display(list.getHead());
+        System.out.println("--------------------------------");
+        System.out.println("Currently playing -> " + list.getCurPointer().getDataOfNode());
     }
 }
