@@ -3,7 +3,7 @@ package Controller;
 import Model.Node;
 import view.Menu;
 
-public class LinkedList_Family extends Menu<String>{
+public class MainController extends Menu<String>{
     
     private Menu parentMenu;
     private Node node;
@@ -13,7 +13,7 @@ public class LinkedList_Family extends Menu<String>{
     private String head, tail, next;
     
     
-    public LinkedList_Family(Node dataOfNode, Menu parentMenu){
+    public MainController(Node dataOfNode, Menu parentMenu){
         super("Controller", mc, parentMenu);
         this.parentMenu = parentMenu;
         dataOfNode.getDataOfNode();
