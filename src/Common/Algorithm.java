@@ -8,7 +8,7 @@ public class Algorithm {
         Node pointer = head;
         while (pointer != null) {
             System.out.print(pointer.getDataOfNode() + " ");
-            pointer.setNext(pointer);
+            pointer = pointer.getNext();
         }
         System.out.println("");
     }
