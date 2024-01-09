@@ -128,3 +128,57 @@ public class LinkedList {
         this.size++;
     }
 }
+
+ class Back {
+    private static class Node {
+        int data;
+        Node next;
+        
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    
+    private Node head;
+    
+    public Back() {
+        this.head = null;
+    }
+    
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+    
+    public String checkCurrent() {
+        if (head == null) {
+            return "The list is empty.";
+        }
+        
+        Node current = head;
+        if (current.data < head.data) {
+            return "You are at the head of the list! Seriously, now break!";
+        }
+        
+        while (current.next != null) {
+            current = current.next;
+            if (current.data < head.data) {
+                return "You are at the head of the list! Seriously, now break!";
+            }
+        }
+        
+        return "You are not at the head of the list!";
+    }
+    
+  
+}
