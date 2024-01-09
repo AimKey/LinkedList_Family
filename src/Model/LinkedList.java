@@ -13,7 +13,8 @@ public class LinkedList {
     Node curPointer;
 
     public LinkedList() {
-        curPointer = head = tail = null;
+        head = tail = null;
+        curPointer = head;
         size = 0;
     }
 
@@ -33,11 +34,20 @@ public class LinkedList {
         this.tail = tail;
     }
 
+    public Node getCurPointer() {
+        return curPointer;
+    }
+
+    public void setCurPointer(Node curPointer) {
+        this.curPointer = curPointer;
+    }
+    
+
     public void add(Song songData) {
         Node node = new Node(songData, null);
         if (head == null) {
 //            If empty, update pHead and pTail point to the new Node
-            head = tail = node;
+            curPointer = head = tail = node;
         } else {
             tail.next = node;
             tail = node;
