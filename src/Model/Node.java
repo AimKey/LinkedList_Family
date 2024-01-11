@@ -3,8 +3,8 @@ package Model;
 public class Node<T> {
 
     T dataOfNode;
-    Node next;
-    Node pre;
+    Node<T> next;
+    Node<T> pre;
 
     public Node() {
     }
@@ -37,10 +37,5 @@ public class Node<T> {
         this.next = next;
     }
 
-    @Override
-    public String toString() {
-        String r = "Node{" + "dataOfNode=" + dataOfNode + '}';
-        return "nope";
-    }
     
 }

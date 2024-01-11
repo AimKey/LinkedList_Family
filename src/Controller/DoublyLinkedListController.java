@@ -7,7 +7,7 @@ import Model.Item;
 import view.Menu;
 
 /**
- *
+ *for Shopping cart option
  * @author phamm
  */
 public class DoublyLinkedListController extends Menu<String> {
