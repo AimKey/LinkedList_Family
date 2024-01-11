@@ -8,7 +8,6 @@ import Model.Song;
 import view.Menu;
 
 public class MainController extends Menu<String> {
-
     private Menu parentMenu;
     private static String[] mc = {"Playlist management", "Shopping Cart",
         "Game queue", "Exit"};
@@ -39,10 +38,10 @@ public class MainController extends Menu<String> {
         new LinkedListController(parentMenu).run();
     }
     public void doublyLinkedList() {
-        new LinkedListController(parentMenu).run();
+        new DoublyLinkedListController(parentMenu).run();
     }
     public void circularLinkedList() {
-        new LinkedListController(parentMenu).run();
+        new CircularLinkedListController(parentMenu).run();
     }
 
     

@@ -45,7 +45,7 @@ public class LinkedList {
     public int size() {
         return this.size;
     }
-
+//  Copy qua cac linkedlist khac thi nho doi ten
     public void add(Song songData) {
         Node node = new Node(songData, null);
         if (head == null) {
@@ -97,7 +97,7 @@ public class LinkedList {
         Node pointer = head;
         while (pointer != null) {
             if (count == index) {
-                return pointer.dataOfNode;
+                return (Song) pointer.dataOfNode;
             }
             pointer = pointer.next;
             count++;
@@ -137,7 +137,7 @@ public class LinkedList {
         if (curPointer == null) {
             return null;
         }
-        Song info = curPointer.dataOfNode;
+        Song info = (Song) curPointer.dataOfNode;
         curPointer = curPointer.next;
         return info;
     }
