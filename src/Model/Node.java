@@ -4,6 +4,7 @@ public class Node<T> {
 
     T dataOfNode;
     Node next;
+    Node pre;
 
     public Node() {
     }
@@ -12,6 +13,13 @@ public class Node<T> {
         this.dataOfNode = dataOfNode;
         this.next = next;
     }
+
+    public Node(T dataOfNode, Node next, Node pre) {
+        this.dataOfNode = dataOfNode;
+        this.next = next;
+        this.pre = pre;
+    }
+    
 
     public T getDataOfNode() {
         return dataOfNode;
@@ -31,8 +39,8 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return "Node{" + "dataOfNode=" + dataOfNode + ", next=" + next + '}';
+        String r = "Node{" + "dataOfNode=" + dataOfNode + '}';
+        return "nope";
     }
     
-
 }

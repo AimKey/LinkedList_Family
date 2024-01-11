@@ -61,7 +61,7 @@ public class LinkedListController extends Menu<String> {
                 break;
             }
         }
-        algo.display(list.getHead());
+        algo.displaySongs(list.getHead());
     }
 
     public void doShuffle() {
@@ -92,8 +92,8 @@ public class LinkedListController extends Menu<String> {
 
     public void doShow() {
         System.out.println("-----------------Playlist-----------------");
-        algo.display(list.getHead());
-        System.out.println("--------------------------------");
+        algo.displaySongs(list.getHead());
+        System.out.println("------------------------------------------");
         System.out.println("Currently playing -> " + list.getCurPointer().getDataOfNode());
     }
 }

@@ -66,7 +66,6 @@ public class LinkedList {
             if (head == null || index == 0) {
                 addFirst(inputData);
             } else {
-//                System.out.println("Pre: " + pre + " After: " + after);
                 pre.next = newNode;
                 newNode.next = after;
             }
