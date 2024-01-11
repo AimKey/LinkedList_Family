@@ -20,7 +20,6 @@ public class Node<T> {
         this.pre = pre;
     }
     
-
     public T getDataOfNode() {
         return dataOfNode;
     }
