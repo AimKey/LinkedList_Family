@@ -38,7 +38,7 @@ public class Item {
 
     @Override
     public String toString() {
-        String res = String.format("Name: %-10s, ammount: %-10s \n Description: ", name, ammount, desc);
+        String res = String.format("|Name: %-10s |Ammount: %-10s \n|Description: %s", name, ammount, desc);
         return res;
     }
 
