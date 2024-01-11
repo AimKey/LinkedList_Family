@@ -11,23 +11,19 @@ public class CircularLinkedList<T> {
     }
 
     public void enqueue(T data) {
-        Node<T> newNode = new Node<>(data, null, null);
+        Node<T> newNode = new Node<>(data, null);
         if (isEmpty()) {
             // If the list is empty, set the new node as both the head and the tail,
             // and connect it to itself in both directions to form a circular structure
             head = newNode;
             tail = newNode;
-            newNode.next = head;
-            newNode.pre = tail;
+            newNode.setNext(head);
         } else {
-            // If the list is not empty, set the new node's previous reference to the current tail,
-            // connect the current tail's next reference to the new node, and update the tail to the new node
-            // then connect the last and first nodes to maintain the circular structure
-            newNode.pre = tail;
-            tail.next = newNode;
+            tail.setNext(newNode);
+            // If the list is not empty, set the new node's next reference to the head,
+            // and update the tail and head references accordingly to maintain the circular structure
+            newNode.setNext(head);
             tail = newNode;
-            tail.next = head;
-            head.pre = tail;
         }
     }
 
@@ -36,21 +32,16 @@ public class CircularLinkedList<T> {
             System.out.println("Queue is empty");
             return null;
         }
-        // Retrieve the data of the element at the front of the queue.
-        // If there is only one element in the queue, reset both head and tail to null.
-        T data = head.dataOfNode;
+        T data = head.getDataOfNode();
         if (head == tail) {
             head = null;
             tail = null;
             currentPlayer = null; // Reset currentPlayer when queue becomes empty
         } else {
-            // Move the head to the next element and update the circular links accordingly.
-            head = head.next;
-            tail.next = head;
-            head.pre = tail;
+            head = head.getNext();
+            tail.setNext(head);
         }
 
-        // Update currentPlayer if it was pointing to the dequeued player
         if (currentPlayer != null && currentPlayer.getDataOfNode().equals(data)) {
             currentPlayer = head;
         }
@@ -63,7 +54,6 @@ public class CircularLinkedList<T> {
             System.out.println("Queue is empty(move to next player or add player)");
             return;
         }
-        // Start from the head and traverse the circular list
         Node<T> current = head;
         System.out.println("Queue:");
         do {
@@ -84,7 +74,7 @@ public class CircularLinkedList<T> {
             currentPlayer = head;
         } else {
             // Move to the next player
-            currentPlayer = currentPlayer.next;
+            currentPlayer = currentPlayer.getNext();
         }
 
         System.out.println("Current player: " + currentPlayer.getDataOfNode());
