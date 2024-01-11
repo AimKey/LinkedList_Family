@@ -13,13 +13,17 @@ public class CircularLinkedList<T> {
     public void enqueue(T data) {
         Node<T> newNode = new Node<>(data, null);
         if (isEmpty()) {
+            // If the list is empty, set the new node as both the head and the tail,
+            // and connect it to itself in both directions to form a circular structure
             head = newNode;
             tail = newNode;
             newNode.setNext(head);
         } else {
             tail.setNext(newNode);
+            // If the list is not empty, set the new node's next reference to the head,
+            // and update the tail and head references accordingly to maintain the circular structure
+            newNode.setNext(head);
             tail = newNode;
-            tail.setNext(head);
         }
     }
 
@@ -28,7 +32,6 @@ public class CircularLinkedList<T> {
             System.out.println("Queue is empty");
             return null;
         }
-
         T data = head.getDataOfNode();
         if (head == tail) {
             head = null;
@@ -39,7 +42,6 @@ public class CircularLinkedList<T> {
             tail.setNext(head);
         }
 
-        // Update currentPlayer if it was pointing to the dequeued player
         if (currentPlayer != null && currentPlayer.getDataOfNode().equals(data)) {
             currentPlayer = head;
         }
@@ -52,11 +54,10 @@ public class CircularLinkedList<T> {
             System.out.println("Queue is empty(move to next player or add player)");
             return;
         }
-
         Node<T> current = head;
         System.out.println("Queue:");
         do {
-            System.out.print(current.getDataOfNode()+ " ");
+            System.out.print(current.getDataOfNode() + " ");
             current = current.getNext();
         } while (current != head);
         System.out.println();

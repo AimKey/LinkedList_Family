@@ -48,12 +48,17 @@ public class CircularLinkedListController extends Menu<String> {
 
     public void enqueue() {
         String playerName = lib.getString("Enter the name of the player to enqueue");
+        // Get the name of the player to enqueue from user input.
+        String playerName = lib.getString("Enter the name of the player to enqueue:");
+        // Enqueue the player's name and print a confirmation message.
         list.enqueue(playerName);
         System.out.println("Player '" + playerName + "' enqueued");
     }
 
     public void dequeue() {
+        // Dequeue the player's name from the queue.
         String dequeuedPlayer = (String) list.dequeue();
+        // Print a confirmation message if a player was dequeued.
         if (dequeuedPlayer != null) {
             System.out.println("Player '" + dequeuedPlayer + "' dequeued");
         }
