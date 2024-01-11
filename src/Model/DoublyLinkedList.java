@@ -9,7 +9,7 @@ import java.util.Random;
 public class DoublyLinkedList {
 
     Node head, tail;
-    public int size;
+    private int size;
     Node curPointer;
 
     public DoublyLinkedList() {
@@ -66,7 +66,7 @@ public class DoublyLinkedList {
     public void addFirst(Item inputData) {
         Node node = new Node(inputData, head, null);
         if (head == null) {
-//            If empty, update pHead and pTail point to the new Node
+//            If empty, update Head and Tail point to the new Node
             head = tail = node;
         } else {
             Item item = getItemByName(inputData.name);
@@ -83,7 +83,6 @@ public class DoublyLinkedList {
     public Item getItemByName(String itemName) {
         Node<Item> pointer = head;
         while (pointer != null) {
-            System.out.println("Searching: " + pointer.dataOfNode.name);
             if (itemName == null ? pointer.dataOfNode.name == null : itemName.equals(pointer.dataOfNode.name)) {
                 return pointer.getDataOfNode();
             }
@@ -145,23 +144,15 @@ public class DoublyLinkedList {
         return null;
     }
 
-    public Node getPreviousNode(Node node) throws Exception {
-        try {
-            if (size > 1) {
-                return node.pre;
-            } else {
-                throw new Exception("List only contain 1 item!");
-            }
-        } catch (Exception e) {
-//            Will happen if node.pre is null
-            throw new Exception("Cannot back further!");
-        }
+    public Item prev() {
+        if (curPointer == null) return null;
+        Item info = (Item) curPointer.dataOfNode;
+        curPointer = curPointer.pre;
+        return info;
     }
 
     public Item next() {
-        if (curPointer == null) {
-            return null;
-        }
+        if (curPointer == null) return null;
         Item info = (Item) curPointer.dataOfNode;
         curPointer = curPointer.next;
         return info;
