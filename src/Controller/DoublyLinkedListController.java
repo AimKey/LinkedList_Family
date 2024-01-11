@@ -16,7 +16,7 @@ public class DoublyLinkedListController extends Menu<String> {
     private static String[] mc = {"Add", "Remove", "Adjust quantities", "View Items", "Detail view", "Return to menu"};
     private Library lib;
     private DoublyLinkedList list;
-    private Algorithm algo;
+    private Algorithm algo; 
 
     public DoublyLinkedListController(Menu parentMenu) {
         super("Shopping cart", mc, parentMenu);
@@ -55,8 +55,10 @@ public class DoublyLinkedListController extends Menu<String> {
             String iName = lib.getString("Enter item name");
             int iAmmount = lib.getInt("Enter item ammount");
             String desc = lib.getString("Enter item desc");
+//            add new item to the list (shopping cart)
             list.add(new Item(iName, iAmmount, desc));
         } catch (Exception e) {
+//            This execute if user enter wrong input type
             System.out.println("Wrong information!");
         }
     }

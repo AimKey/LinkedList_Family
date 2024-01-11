@@ -46,12 +46,15 @@ public class DoublyLinkedList {
 
     public void add(Item itemData) {
 //        Node: data, nextNode, preNode
+//        Create a new node with it's previous pointer point to the tail
         Node node = new Node(itemData, null, tail);
         if (head == null) {
             curPointer = head = tail = node;
         } else {
+//            If the item is exist, only increment item count
             Item item = getItemByName(itemData.name);
             if (item == null) {
+//                Move up the tail
                 tail.next = node;
                 tail = node;
             } else {
@@ -61,10 +64,10 @@ public class DoublyLinkedList {
         updateSize();
     }
 
+//    Add element to the first location of the list
     public void addFirst(Item inputData) {
         Node node = new Node(inputData, head, null);
         if (head == null) {
-//            If empty, update Head and Tail point to the new Node
             head = tail = node;
         } else {
             Item item = getItemByName(inputData.name);
@@ -77,7 +80,7 @@ public class DoublyLinkedList {
         }
         updateSize();
     }
-
+//    Iterate through the list and return the matching Item name
     public Item getItemByName(String itemName) {
         Node<Item> pointer = head;
         while (pointer != null) {
@@ -143,14 +146,18 @@ public class DoublyLinkedList {
     }
 
     public Item prev() {
-        if (curPointer == null) return null;
+        if (curPointer == null) {
+            return null;
+        }
         Item info = (Item) curPointer.dataOfNode;
         curPointer = curPointer.pre;
         return info;
     }
 
     public Item next() {
-        if (curPointer == null) return null;
+        if (curPointer == null) {
+            return null;
+        }
         Item info = (Item) curPointer.dataOfNode;
         curPointer = curPointer.next;
         return info;
