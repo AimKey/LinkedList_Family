@@ -11,12 +11,14 @@ import view.Menu;
  * @author phamm
  */
 public class LinkedListController extends Menu<String> {
+
     private Menu parentMenu;
     private static String[] mc = {"Add Song", "Shuffle", "Skip to next",
         "Back to previous", "Show all songs", "Return to menu"};
     private Library lib;
     private LinkedList list;
     private Algorithm algo;
+
     public LinkedListController(Menu parentMenu) {
         super("Playlist manager", mc, parentMenu);
         this.parentMenu = parentMenu;
@@ -63,7 +65,9 @@ public class LinkedListController extends Menu<String> {
     }
 
     public void doShuffle() {
-        if (list.size < 1) System.out.println("There is only 1 song in the list");
+        if (list.size < 1) {
+            System.out.println("There is only 1 song in the list");
+        }
         list.shuffle();
     }
 
@@ -87,10 +91,9 @@ public class LinkedListController extends Menu<String> {
     }
 
     public void doShow() {
-        System.out.println("------------Playlist------------");
+        System.out.println("-----------------Playlist-----------------");
         algo.display(list.getHead());
         System.out.println("--------------------------------");
         System.out.println("Currently playing -> " + list.getCurPointer().getDataOfNode());
     }
-
 }
