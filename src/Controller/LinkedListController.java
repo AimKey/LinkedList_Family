@@ -69,6 +69,7 @@ public class LinkedListController extends Menu<String> {
             System.out.println("There is only 1 song in the list");
         }
         list.shuffle();
+        doShow();
     }
 
     public void doSkip() {
