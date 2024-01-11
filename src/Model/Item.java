@@ -4,12 +4,10 @@ public class Item {
 
     String name, desc;
     int ammount;
-
     public Item(String name, int ammount) {
         this.name = name;
         this.ammount = ammount;
     }
-
     public Item(String name, int ammount, String desc) {
         this.name = name;
         this.desc = desc;

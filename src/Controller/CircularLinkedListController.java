@@ -3,7 +3,6 @@ package Controller;
 import Common.Algorithm;
 import Common.Library;
 import Model.CircularLinkedList;
-import Model.Node;
 import view.Menu;
 
 /**
@@ -48,9 +47,7 @@ public class CircularLinkedListController extends Menu<String> {
     }
 
     public void enqueue() {
-        // Get the name of the player to enqueue from user input.
-        String playerName = lib.getString("Enter the name of the player to enqueue:");
-        // Enqueue the player's name and print a confirmation message.
+        String playerName = lib.getString("Enter the name of the player to enqueue");
         list.enqueue(playerName);
         System.out.println("Player '" + playerName + "' enqueued");
     }

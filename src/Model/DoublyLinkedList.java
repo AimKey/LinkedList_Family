@@ -43,7 +43,7 @@ public class DoublyLinkedList {
     public int size() {
         return this.size;
     }
-
+    
     public void add(Item itemData) {
 //        Node: data, nextNode, preNode
 //        Create a new node with it's previous pointer point to the tail
@@ -64,7 +64,10 @@ public class DoublyLinkedList {
         updateSize();
     }
 
-//    Add element to the first location of the list
+/**
+ * Add Item to the first location in the list
+ * @param inputData 
+ */
     public void addFirst(Item inputData) {
         Node node = new Node(inputData, head, null);
         if (head == null) {
@@ -80,7 +83,11 @@ public class DoublyLinkedList {
         }
         updateSize();
     }
-//    Iterate through the list and return the matching Item name
+/**
+ * Iterate through the list and return the Item object if the names are matched
+ * @param itemName
+ * @return
+ */
     public Item getItemByName(String itemName) {
         Node<Item> pointer = head;
         while (pointer != null) {
@@ -92,6 +99,12 @@ public class DoublyLinkedList {
         return null;
     }
 
+    /**
+     * Add Item based on index
+     * @param index
+     * @param itemData
+     * @throws Exception 
+     */
     public void add(int index, Item itemData) throws Exception {
         if (index <= size) {
             Node nodeAfter = getNode(index);
@@ -112,7 +125,11 @@ public class DoublyLinkedList {
             throw new Exception("Exceed size limit!");
         }
     }
-
+/**
+ * Get a node at any location
+ * @param index
+ * @return Node
+ */
     private Node getNode(int index) {
         if (index < 0 || index >= this.size) {
             return null;
@@ -131,7 +148,11 @@ public class DoublyLinkedList {
         }
         return null;
     }
-
+/**
+ * Get an Item object at any location
+ * @param index
+ * @return 
+ */
     public Item get(int index) {
         int count = 0;
         Node pointer = head;
@@ -144,7 +165,10 @@ public class DoublyLinkedList {
         }
         return null;
     }
-
+/**
+ * Backward current pointer
+ * @return 
+ */
     public Item prev() {
         if (curPointer == null) {
             return null;
@@ -153,7 +177,10 @@ public class DoublyLinkedList {
         curPointer = curPointer.pre;
         return info;
     }
-
+/**
+ * Advance current pointer
+ * @return 
+ */
     public Item next() {
         if (curPointer == null) {
             return null;
@@ -162,7 +189,12 @@ public class DoublyLinkedList {
         curPointer = curPointer.next;
         return info;
     }
-
+/**
+ * Delete a Node based on the name property of in the node data
+ * If the Node is find, link its previous node with its next node together
+ * @param itemName
+ * @return 
+ */
     public boolean delete(String itemName) {
         Node<Item> nodePointer = head;
         while (nodePointer != null) {
