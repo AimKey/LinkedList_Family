@@ -20,7 +20,6 @@ public class Node<T> {
         this.pre = pre;
     }
     
-
     public T getDataOfNode() {
         return dataOfNode;
     }
@@ -36,6 +35,4 @@ public class Node<T> {
     public void setNext(Node next) {
         this.next = next;
     }
-
-    
 }

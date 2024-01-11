@@ -28,7 +28,7 @@ public class MainController extends Menu<String> {
                 System.exit(0);
         }
     }
-
+//  3 controllers for 3 different programs
     public void linkedList() {
         new LinkedListController(parentMenu).run();
     }
@@ -38,6 +38,4 @@ public class MainController extends Menu<String> {
     public void circularLinkedList() {
         new CircularLinkedListController(parentMenu).run();
     }
-
-    
 }
